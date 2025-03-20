@@ -1,0 +1,481 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --base-font-size: 10px; /* Updated for a rounded figure */
+    --scale-ratio: 1.2;
+}
+
+
+*, *::before, *::after {box-sizing: border-box;}
+
+html {    
+    margin: 0;
+    padding: 0;   
+    font-size: 10px;
+    font-family: "Roboto", sans-serif;
+    color:beige;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0; /* fix to unintended margin */
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem; /* padding around */
+    font-size: calc(var(--base-font-size) * var(--scale-ratio)); /* Now scales from 10px */
+    overflow-x: hidden;
+
+}
+
+/* ---bg start--- */
+/* parent to .bg-main */
+.bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-main {
+    background-image: url('../assets/images/honey-1810147.jpg');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    width: 100%;
+    height:100%;
+    filter: brightness(70%);
+}
+/* ---bg end--- fix*/
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border: solid black;
+    border-radius: 15px;
+    box-shadow: 1px 1px 45px red
+}
+
+/* parent to side-nav*/
+.side-nav-container {
+    position:static
+}
+
+/* Side menu title */
+.side-menu-title {
+    position: relative;
+    top: 1%;
+    padding-left: 2.8rem;
+}
+
+/* position, style */
+.sidenav {
+    height: 100%;
+    max-width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+/* link style */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: #939393;
+    display: block;
+    transition: 0.3s;
+}
+
+/* mouse over link colour change */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* position and style the close button top right */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    font-size: 3rem;
+    margin-left: 5rem;
+}
+
+/* menu icon start here */
+span {
+    display: inline-block;
+    cursor: pointer;
+    border: 1px white;
+}
+
+/* default bars */
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #7e7e7e;
+    margin: 0.6rem;
+    transition: 0.4s;
+    z-index: -2;
+}
+
+/* Fonts-sizing */
+h1 {font-size: 2.75rem;}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+
+}
+
+h3 {font-size: 2rem;}
+
+h4 {font-size: 1.75rem}
+
+p {
+    font-size: 1.25rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin-bottom: 1.5rem;
+}
+
+ol {font-size: 1.10rem;}
+
+
+/* tranparent bg */
+#brief-report {
+    padding: 0rem 1rem 0rem 1rem;
+    margin-bottom: 2rem;
+    border: solid red;
+    background: rgba(87, 47, 47, 0.36);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgb(55, 55, 55);
+}
+
+/* styles logo */
+.logo {
+    /* position logo */
+    justify-self: center;
+    max-width: min(15vw ,40rem);
+    height: auto;
+    box-shadow: 10px 10px 132px 10px #fff;
+    border-radius: 360px;
+    /* Change colour of logo */
+    filter: brightness(0.1) invert(0.4) sepia(2.5) saturate(255) hue-rotate(50deg);
+    transition: filter 0.5s;
+}
+
+@keyframes logo-ani {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.logo-ani {
+    animation: logo-ani 9s linear infinite;
+}
+
+
+/* align logo and title */
+.title_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    gap: rem;
+}
+
+.title {
+    font-size: 3rem;
+    font-family: "Tektur", sans-serif;
+    margin: 0;
+}
+
+.sub-title {
+    display: flex;
+    align-items: center;
+    font-family: "Tektur", sans-serif; 
+    margin: 0;
+    font-size: 5rem;
+    text-align: center;
+    color:beige;
+    font-size: clamp(1.75rem, 10vw, 2vw); /* set min - preffered - max sizes */
+    transition: font-size 0.6s ease-in-out; /* adjust speed */
+    z-index: -1;
+}
+
+/* Main starts here */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.bg-change {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    padding: 1.75rem;
+    background: rgba(87, 47, 47, 0.36);
+    border-radius: 6px;
+    width: 100%;
+    height: auto;
+    padding: 1.75rem;
+    background: rgba(87, 47, 47, 0.36);
+    border-radius: 6px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgb(55, 55, 55);
+}
+
+
+
+
+/* device compatibility */
+/* Small devices (320px to 479px) */
+@media (min-width: 320px) and (max-width: 479px) {
+
+    img {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        border: solid black;
+    }
+
+    .logo {
+        width: 9rem;
+    }
+
+    .item_code {
+        margin-bottom: 2rem;
+        font-size: 3rem;
+    }
+
+    .sidenav a {
+        font-size: clamp(1.75rem, 3%, 5rem)
+    }
+
+    .sidenav {
+        width: clamp(15rem, 20%, 32rem )
+    }
+
+    .title_logo {
+        padding-bottom: 5rem;
+    }
+}
+
+/* Medium devices (480px to 609px) */
+@media (min-width: 480px) and (max-width: 609px) {
+    .logo {
+        width: clamp(8rem, 10vw, 10rem);
+    }        
+    
+    img {
+        max-width: 90%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }    
+
+    .sidenav a {
+        font-size: clamp(1.95rem, 3%, 5rem)
+    }
+
+    .sidenav {
+        width: clamp(15rem, 20%, 32rem )
+    }
+
+    h1, .title {
+        font-size: clamp(2.5rem, 3vw, 3rem);
+    }
+
+    h2 {
+        font-size: 2.7rem;
+    }
+
+    p {
+        word-wrap: break-word; /* Breaks long words */
+        overflow-wrap: break-word;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        font-size: clamp(1rem, 1.5vw, 1.75rem);
+    }
+
+    ol {
+        font-size: 1.5rem;
+    }
+}
+
+/* Medium-large devices (610px to 767px) */
+@media (min-width: 610px) and (max-width: 767px) {
+    .logo {
+        width: clamp(10rem, 11vw, 12rem);
+    }
+
+    img {
+        max-width: 80%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .sidenav a {
+        font-size: clamp(2rem, 6%, 7rem);
+    }
+
+    .sidenav {
+        width: clamp(15rem, 23%, 27.5rem )
+    }
+
+    h1, .title {
+        font-size: clamp(2.7rem, 3vw, 3rem);
+    }
+
+    p {
+        font-size: clamp(1rem, 1.5vw, 1.75rem)
+        ;
+    }
+}
+
+/* Tablet devices (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    html {
+        font-size: 10px;
+        overflow-x: hidden;
+        margin: 2rem;
+    }
+
+    .logo {
+        width: clamp(12rem, 10vw, 14rem);
+    }
+
+    main {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    img {
+        max-width: 80%;
+        height: auto;
+        margin: 0 auto;
+        border: solid black;
+    }
+
+    .title_logo {
+        padding-bottom: 5rem;
+    }
+
+    .sidenav a {
+        font-size: clamp(2rem, 6%, 7rem);
+    }
+
+    .sidenav {
+        width: clamp(15rem, 20%, 22rem )
+    }
+
+    h1, .title {
+        font-size: clamp(3rem, 3.5vw, 4rem);
+    }
+
+    p {
+        font-size: clamp(1.2rem, 1.6vw, 1.75rem);
+        line-height: 1.6;
+    }
+}
+
+/* Larger tablet & small desktop (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .logo {
+        width: clamp(13rem, 10vw, 17rem);
+    }
+
+    img {
+        max-width: 80%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+    }
+
+    .sidenav a {
+        font-size: clamp(2rem, 6%, 7rem);
+    }
+
+    .sidenav {
+        width: clamp(18rem, 18%, 23rem )
+    }
+
+    h1, .title {
+        font-size: clamp(2rem, 4vw, 10rem);
+    }
+
+    p {
+        font-size: clamp(1.3rem, 1.7vw, 1.75rem);
+        line-height: 1.6;
+    }
+
+
+/* Large desktop (1200px and above) */
+@media (min-width: 1200px) {
+
+    .logo {
+        width: clamp(14rem, 12vw, 20rem);
+    }
+
+    img {
+        max-width: 80%;
+        height: auto;
+        margin: 0 auto;
+        border: solid black;
+    }
+
+    h2 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .sidenav a {
+        font-size: clamp(2rem, 4.1%, 5rem);
+    }
+
+    .sidenav {
+        width: clamp(11rem, 18%, 27.5rem )
+    }
+
+    h1, .title {
+        font-size: clamp(7rem, 5vw, 6rem);
+    }
+
+    p {
+        word-wrap: break-word;
+        /* overflow-x: hidden; */
+        font-size: clamp(1.5rem, 2vw, 2rem);
+    }
+}
+
+
+

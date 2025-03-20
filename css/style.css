@@ -1,0 +1,586 @@
+Final css after validation>
+
+*, *::before, *::after {box-sizing: border-box;}
+
+html {    
+    margin: 0;
+    padding: 0;    
+    font-size: 10px;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+#card-wrapper { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position:relative;
+    height: 100dvh;
+    width: 100%;  
+}
+
+.title {    
+    font-family: "Tektur", sans-serif;
+    padding: 1rem;
+    margin: 0;
+    text-align: center;
+    color:beige;
+    font-size: clamp(2rem, 10rem, 4rem);   /* set min - preffered - max sizes  */
+    transition: font-size 0.6s ease-in-out;  /* adjust speed  */
+}
+
+.logo-ani {
+    animation: logo-ani 9s linear infinite;
+}
+/* ---animate logo end--- */
+
+/* align logo and title */
+.title_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    gap: 2rem;
+}
+
+#sub-title {
+    font-family: "Tektur", sans-serif; 
+    margin: 0;
+    font-size: 5rem;
+    position:absolute;
+    bottom: 2rem;
+    text-align: center;
+    color:beige;
+    font-size: clamp(1.75rem, 10vw, 2vw); /* set min - preffered - max sizes */
+    transition: font-size 0.6s ease-in-out; /* adjust speed */
+    z-index: -1;
+   
+}
+
+.bg_main {
+    background-image: url('../assets/images/honey-1810147.jpg');
+    background-size: cover;
+    background-position: center;
+    place-items: center;
+    background-attachment: fixed;
+    height:auto;
+    width: 100%;
+    margin: 0 auto;
+    top:0;
+}
+
+.logo { /* adjust logo size with width */
+    width: 8rem;
+    height: auto;
+    box-shadow: 10px 10px 132px 10px #ffee00;
+    border-radius: 360px;
+    filter: brightness(0.1) invert(0.4) sepia(2.5) saturate(10%) hue-rotate(50deg); 
+
+}
+
+.logo-ani {
+    animation: logo-ani 9s linear infinite;
+}
+
+@keyframes logo-ani {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* NOTE: because card-wrapper is set to flex with multiple children,
+the only option to center a target child would be to use position:absolute 
+without affecting the other children  */
+.card-container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100vh; 
+    width: 100%;
+    max-width: 100%; /* fixes horizontal overflow */
+    overflow: hidden; 
+}
+
+.card-stack {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+    align-items: center;
+    margin: auto 0;
+}
+
+/* dimensions for cards */ 
+.card {
+    position:absolute;
+    width: clamp(20rem, 5vw, 70rem); 
+    height: clamp(32rem, 8vw, 80rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(2.4rem, 1.2vw, 7rem);
+    transition: transform 0.5s, opacity 0.5s;
+    background: linear-gradient(135deg, rgb(255, 255, 255, 0.1), rgb(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgb(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 23px;
+    text-decoration: none;
+    color: beige;
+}
+.card.position-0 {
+    transform: translateX(0px) scale(1) rotateY(0deg);
+    opacity: 1;
+    z-index: 1; /* Front-most card */
+}
+
+.card.position-1 {
+    transform: translateX(40rem) scale(0.8) rotateY(30deg);
+    opacity: 0.7;
+    z-index: 0; /* Middle-right */
+}
+
+.card.position--1 {
+    transform: translateX(-40rem) scale(0.8) rotateY(-30deg);
+    opacity: 0.7;
+    z-index: 0; /* Middle-left */
+}
+
+.card.position-2 {
+    transform: translateX(55rem) scale(0.6) rotateY(40deg);
+    opacity: 0.6;
+    z-index: -1; /* Far-right */
+}
+
+.card.position--2 {
+    transform: translateX(-55rem) scale(0.6) rotateY(-40deg);
+    opacity: 0.6;
+    z-index: -1; /* Far-left */
+}
+
+/* fingerprint scanner */
+
+#screen-blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.overlay-content {
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+    font-family: "Tektur", sans-serif;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+button {
+    border: none;
+    background: transparent; /* Remove default button styles */
+    padding: 0; /* Remove padding for the button */
+    cursor: pointer;
+}
+
+button img {
+    width: 200px; /* Adjust size of GIF as needed */
+    height: auto;
+    border-radius: 10px; /* Optional: round edges */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional: give the GIF a shadow */
+    transition: transform 0.3s ease;
+}
+
+button img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* device compatibility */
+@media screen and (min-width: 400px){
+    .logo {
+        max-width: min(1rem, 10rem);
+        height:100%;
+    }
+    .title {
+        font-size: 5rem; /* set min - preffered - max sizes */
+        transition: font-size 0.6s ease-in-out; /* adjust speed */
+    }
+
+    .card {
+        width: 10rem; /* Adjusts between 20rem and 40rem based on screen size */
+        height: 16rem; /* Adjusts between 25rem and 50rem*/
+    }
+
+    .card.position-0 {
+        transform: translateX(0px) scale(1) rotateY(0deg);
+        opacity: 1;
+        z-index: 1; /* Front-most card */
+    }
+    
+    .card.position-1 {
+        transform: translateX(20rem) scale(0.8) rotateY(30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-right */
+    }
+    
+    .card.position--1 {
+        transform: translateX(-20rem) scale(0.8) rotateY(-30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-left */
+    }
+    
+    .card.position-2 {
+        transform: translateX(34rem) scale(0.6) rotateY(40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-right */
+    }
+    
+    .card.position--2 {
+        transform: translateX(-34rem) scale(0.6) rotateY(-40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-left */
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 687px){
+    .logo {
+        max-width: min(12rem,20vw ,30rem);
+        height:fit-content;
+    }
+    .title {
+        font-size: 4rem; /* set min - preffered - max sizes */
+        transition: font-size 0.6s ease-in-out; /* adjust speed */
+    }
+
+    .card {
+        width: 14rem; /* Adjusts between 20rem and 40rem based on screen size */
+        height: 20rem; /* Adjusts between 25rem and 50rem*/
+    }
+    
+    .card.position-0 {
+        transform: translateX(0px) scale(1) rotateY(0deg);
+        opacity: 1;
+        z-index: 1; /* Front-most card */
+    }
+    
+    .card.position-1 {
+        transform: translateX(15rem) scale(0.8) rotateY(30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-right */
+    }
+    
+    .card.position--1 {
+        transform: translateX(-15rem) scale(0.8) rotateY(-30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-left */
+    }
+    
+    .card.position-2 {
+        transform: translateX(25rem) scale(0.6) rotateY(40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-right */
+    }
+    
+    .card.position--2 {
+        transform: translateX(-25rem) scale(0.6) rotateY(-40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-left */
+    }
+} 
+
+@media  screen and (min-width: 688px) and (max-width: 973px){
+    .logo {
+        max-width: min(10vw ,34rem);
+        height: auto;
+    }
+
+    .title {
+        font-size: 6rem; /* set min - preffered - max sizes */
+        transition: font-size 0.6s ease-in-out; /* adjust speed */
+    }
+
+    .card {
+        width: 15rem; /* Adjusts between 20rem and 40rem based on screen size */
+        height: 21rem; /* Adjusts between 25rem and 50rem*/
+    }
+    
+    .card.position-0 {
+        transform: translateX(0px) scale(1) rotateY(0deg);
+        opacity: 1;
+        z-index: 1; /* Front-most card */
+    }
+    
+    .card.position-1 {
+        transform: translateX(15rem) scale(0.8) rotateY(30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-right */
+    }
+    
+    .card.position--1 {
+        transform: translateX(-15rem) scale(0.8) rotateY(-30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-left */
+    }
+    
+    .card.position-2 {
+        transform: translateX(25rem) scale(0.6) rotateY(40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-right */
+    }
+    
+    .card.position--2 {
+        transform: translateX(-25rem) scale(0.6) rotateY(-40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-left */
+    }
+}
+
+@media screen and (min-width: 974px) and (max-width: 1259px){
+    .logo {
+        max-width: min(8vw ,30rem);
+        height:fit-content;
+    }
+    .title {
+        font-size: 6rem; /* set min - preffered - max sizes */
+        transition: font-size 0.6s ease-in-out; /* adjust speed */
+    }
+
+    .card {
+        width: 15rem; /* Adjusts between 20rem and 40rem based on screen size */
+        height: 20rem; /* Adjusts between 25rem and 50rem*/
+    }
+
+    .card.position-0 {
+        transform: translateX(0px) scale(1) rotateY(0deg);
+        opacity: 1;
+        z-index: 1; /* Front-most card */
+    }
+    
+    .card.position-1 {
+        transform: translateX(18rem) scale(0.8) rotateY(30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-right */
+    }
+    
+    .card.position--1 {
+        transform: translateX(-18rem) scale(0.8) rotateY(-30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-left */
+    }
+    
+    .card.position-2 {
+        transform: translateX(28rem) scale(0.6) rotateY(40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-right */
+    }
+    
+    .card.position--2 {
+        transform: translateX(-28rem) scale(0.6) rotateY(-40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-left */
+    }
+}
+
+@media screen and (min-width: 1260px) and (max-width: 1546px){
+    .logo {
+        max-width: min(8vw ,30rem);
+        height:fit-content;
+    }
+    .title {
+        font-size: 7rem; /* set min - preffered - max sizes */
+        transition: font-size 0.6s ease-in-out; /* adjust speed */
+    }
+
+    .card {
+        width: 18rem; /* Adjusts between 20rem and 40rem based on screen size */
+        height: 26rem; /* Adjusts between 25rem and 50rem*/
+    }
+
+    .card.position-0 {
+        transform: translateX(0px) scale(1) rotateY(0deg);
+        opacity: 1;
+        z-index: 1; /* Front-most card */
+    }
+    
+    .card.position-1 {
+        transform: translateX(18rem) scale(0.8) rotateY(30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-right */
+    }
+    
+    .card.position--1 {
+        transform: translateX(-18rem) scale(0.8) rotateY(-30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-left */
+    }
+    
+    .card.position-2 {
+        transform: translateX(28rem) scale(0.6) rotateY(40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-right */
+    }
+    
+    .card.position--2 {
+        transform: translateX(-28rem) scale(0.6) rotateY(-40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-left */
+    }
+
+}
+
+@media screen and (min-width: 1547px) and (max-width: 1832px){
+    .logo {max-width: min(16rem, 20rem);
+    height: auto; /* This preserves the aspect ratio */
+    object-fit: contain; /* Ensures the image fits within its container */
+    }
+    .title {
+        font-size: 7rem; /* set min - preffered - max sizes */
+        transition: font-size 0.6s ease-in-out; /* adjust speed */
+    }
+
+    .card {
+        width: 24rem; /* Adjusts between 20rem and 40rem based on screen size */
+        height: 34rem; /* Adjusts between 25rem and 50rem*/
+    }
+
+    .card.position-0 {
+        transform: translateX(0px) scale(1) rotateY(0deg);
+        opacity: 1;
+        z-index: 1; /* Front-most card */
+    }
+    
+    .card.position-1 {
+        transform: translateX(23rem) scale(0.8) rotateY(30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-right */
+    }
+    
+    .card.position--1 {
+        transform: translateX(-23rem) scale(0.8) rotateY(-30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-left */
+    }
+    
+    .card.position-2 {
+        transform: translateX(36rem) scale(0.6) rotateY(40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-right */
+    }
+    
+    .card.position--2 {
+        transform: translateX(-36rem) scale(0.6) rotateY(-40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-left */
+    }
+}
+
+@media screen and (min-width: 1833px) and (max-width: 2121px) {
+    .logo {
+        max-width: min(10vw ,30rem);
+        height:fit-content;
+    }
+    .title {
+        font-size: 10rem; /* set min - preffered - max sizes */
+        transition: font-size 0.6s ease-in-out; /* adjust speed */
+    }
+
+    .card {
+        width: 30rem; /* Adjusts between 20rem and 40rem based on screen size */
+        height: 40rem; /* Adjusts between 25rem and 50rem*/
+    }
+
+    .card.position-0 {
+        transform: translateX(0px) scale(1) rotateY(0deg);
+        opacity: 1;
+        z-index: 1; /* Front-most card */
+    }
+    
+    .card.position-1 {
+        transform: translateX(29rem) scale(0.8) rotateY(30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-right */
+    }
+    
+    .card.position--1 {
+        transform: translateX(-29rem) scale(0.8) rotateY(-30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-left */
+    }
+    
+    .card.position-2 {
+        transform: translateX(43rem) scale(0.6) rotateY(40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-right */
+    }
+    
+    .card.position--2 {
+        transform: translateX(-43rem) scale(0.6) rotateY(-40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-left */
+    }
+}
+
+@media screen and (min-width: 2122px) {
+    .logo {
+        max-width: min(10vw ,30rem);
+        height:fit-content;
+    }
+    .title {
+        font-size: 10rem; /* set min - preffered - max sizes */
+        transition: font-size 0.6s ease-in-out; /* adjust speed */
+    }
+
+    .card {
+        width: 27rem; /* Adjusts between 20rem and 40rem based on screen size */
+        height: 37rem; /* Adjusts between 25rem and 50rem*/
+    }
+
+    .card.position-0 {
+        transform: translateX(0px) scale(1) rotateY(0deg);
+        opacity: 1;
+        z-index: 1; /* Front-most card */
+    }
+    
+    .card.position-1 {
+        transform: translateX(29rem) scale(0.8) rotateY(30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-right */
+    }
+    
+    .card.position--1 {
+        transform: translateX(-29rem) scale(0.8) rotateY(-30deg);
+        opacity: 0.7;
+        z-index: 0; /* Middle-left */
+    }
+    
+    .card.position-2 {
+        transform: translateX(43rem) scale(0.6) rotateY(40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-right */
+    }
+    
+    .card.position--2 {
+        transform: translateX(-43rem) scale(0.6) rotateY(-40deg);
+        opacity: 0.5;
+        z-index: -1; /* Far-left */
+    }
+}  
