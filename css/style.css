@@ -215,7 +215,7 @@ button img:hover {
 }
 
 /* device compatibility */
-@media screen and (min-width: 400px){
+@media screen and (min-width: 363px){
     .logo {
         max-width: min(1rem, 10rem);
         height:100%;
@@ -237,13 +237,13 @@ button img:hover {
     }
     
     .card.position-1 {
-        transform: translateX(20rem) scale(0.8) rotateY(30deg);
+        transform: translateX(12rem) scale(0.8) rotateY(30deg);
         opacity: 0.7;
         z-index: 0; /* Middle-right */
     }
     
     .card.position--1 {
-        transform: translateX(-20rem) scale(0.8) rotateY(-30deg);
+        transform: translateX(-12rem) scale(0.8) rotateY(-30deg);
         opacity: 0.7;
         z-index: 0; /* Middle-left */
     }

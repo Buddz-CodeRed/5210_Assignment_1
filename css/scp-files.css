@@ -71,6 +71,7 @@ img {
 /* Side menu title */
 .side-menu-title {
     position: relative;
+    margin: 0 auto;
     top: 1%;
     padding-left: 2.8rem;
 }
@@ -409,6 +410,11 @@ main {
 
 /* Larger tablet & small desktop (992px to 1199px) */
 @media (min-width: 992px) and (max-width: 1199px) {
+
+    body {
+        padding: 4rem;
+    }
+
     .logo {
         width: clamp(13rem, 10vw, 17rem);
     }
@@ -441,6 +447,10 @@ main {
 
 /* Large desktop (1200px and above) */
 @media (min-width: 1200px) {
+
+    body {
+        padding: 5rem;
+    }
 
     .logo {
         width: clamp(14rem, 12vw, 20rem);
