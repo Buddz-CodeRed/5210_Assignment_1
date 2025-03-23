@@ -321,8 +321,8 @@ button img:hover {
     }
 
     .card {
-        width: 15rem; /* Adjusts between 20rem and 40rem based on screen size */
-        height: 21rem; /* Adjusts between 25rem and 50rem*/
+        width: 11rem; /* Adjusts between 20rem and 40rem based on screen size */
+        height: 16rem; /* Adjusts between 25rem and 50rem*/
     }
     
     .card.position-0 {
