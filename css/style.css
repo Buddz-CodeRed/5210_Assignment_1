@@ -215,13 +215,14 @@ button img:hover {
 }
 
 /* device compatibility */
-@media screen and (min-width: 363px){
+@media screen and (min-width: 346px) and (max-width: 400px){
+    
     .logo {
-        max-width: min(1rem, 10rem);
-        height:100%;
+        max-width: min(12rem, 20vw ,30rem);
+        height:fit-content;
     }
     .title {
-        font-size: 5rem; /* set min - preffered - max sizes */
+        font-size: 3.5rem; /* set min - preffered - max sizes */
         transition: font-size 0.6s ease-in-out; /* adjust speed */
     }
 
@@ -263,7 +264,7 @@ button img:hover {
 
 @media screen and (min-width: 401px) and (max-width: 687px){
     .logo {
-        max-width: min(12rem,20vw ,30rem);
+        max-width: min(12rem, 20vw ,30rem);
         height:fit-content;
     }
     .title {
