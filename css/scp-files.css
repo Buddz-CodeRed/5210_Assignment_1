@@ -198,7 +198,8 @@ ol {font-size: 1.10rem;}
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    margin-top: 2rem;
+    gap: 4rem;
 }
 
 .heading {
