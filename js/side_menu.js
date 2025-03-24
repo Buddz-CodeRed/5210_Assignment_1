@@ -2,7 +2,7 @@
 
 function openNav() {
     document.getElementById('mySideNav').style.width = '25rem';
-    document.getElementById('myNav-ani').style.marginLeft = '20rem';
+    document.getElementById('myNav-ani').style.marginLeft = '25rem';
     document.body.style.backgroundColor = 'rgba(0,0,0,0.4)';
 }
 
